@@ -1,15 +1,3 @@
-server:
-  port: 8080
-  
 spring:
-  application:
-    name: qianlixy-framework-microserver-eureka-server
-    
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  profiles:
+    active: dev
