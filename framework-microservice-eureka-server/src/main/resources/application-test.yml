@@ -5,7 +5,7 @@ spring:
   application:
     name: qianlixy-framework-microserver-eureka-server
     
-eureka:
+eureka: 
   instance:
     hostname: localhost
   client:

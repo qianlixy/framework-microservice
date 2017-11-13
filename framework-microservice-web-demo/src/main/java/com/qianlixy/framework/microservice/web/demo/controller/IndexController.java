@@ -1,5 +1,8 @@
 package com.qianlixy.framework.microservice.web.demo.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,21 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
 	
 	@Value("${spring.application.name}")
-	private String appName;
+	private String serverName;
 	@Value("${server.port}")
 	private String port;
 	
 	@RequestMapping("/")
 	public String index() {
-		return appName + ":" + port;
-	}
-
-	public void setAppName(String appName) {
-		this.appName = appName;
-	}
-
-	public void setPort(String port) {
-		this.port = port;
+		String address = null;
+		try {
+			address = InetAddress.getLocalHost().getHostAddress();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+			address = serverName;
+		}
+		return address + ":" + port;
 	}
 
 }
