@@ -10,8 +10,6 @@ spring:
       server:
         git:
           uri: https://gitee.com/qianli_xy/microservice-config.git
-          username: qianli_xy@163.com
-          password: xiaoyao!@#.
           
 eureka:
   client:
