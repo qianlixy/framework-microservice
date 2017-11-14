@@ -1,3 +1,11 @@
+server:
+  port: 80
+
 spring:
-  profiles:
-    active: test
+  application:
+    name: zuul
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://config:8888/
