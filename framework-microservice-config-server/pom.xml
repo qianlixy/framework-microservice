@@ -2,14 +2,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>microservice-config-server</artifactId>
-	
+
 	<parent>
 		<groupId>com.qianlixy.framework</groupId>
 		<artifactId>microservice-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../framework-microservice-parent/</relativePath>
 	</parent>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -24,4 +24,23 @@
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+		<defaultGoal>compile</defaultGoal>
+	</build>
 </project>
